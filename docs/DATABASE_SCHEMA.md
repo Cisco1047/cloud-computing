@@ -1,0 +1,1 @@
+A visual or text-based map of your tables/collections.

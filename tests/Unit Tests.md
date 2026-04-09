@@ -1,0 +1,1 @@
+Use this for Integration Tests and End-to-End (E2E) Tests (like Cypress or Playwright) that test how the Frontend and Backend talk to each other.
