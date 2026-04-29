@@ -1,69 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Fortune Cookie</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #42518b; /* Matches the Spline background color */
-                color: #ffffff;
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-                overflow: hidden; /* Prevents unwanted scrolling */
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Cookie | Digital Luck</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="overlay"></div> <header>
+    <h1>Fortune Cookie</h1>
+    <p>Your destiny awaits a single touch.</p>
+</header>
 
-            header {
-                text-align: center;
-                padding: 20px;
-                z-index: 10; /* Keeps text above the 3D scene if they overlap */
-                background: rgba(0, 0, 0, 0.2); /* Subtle overlay for readability */
-            }
+<main>
+    <div id="cookie-container">
+        <div id="cookie" class="cookie-idle">
+            <div class="cookie-half left"></div>
+            <div class="cookie-half right"></div>
 
-            h1 {
-                margin: 0;
-                font-size: 2.5rem;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-            }
+            <div id="paper">
+                <p id="fortuneMessage">Reading the stars...</p>
+            </div>
+        </div>
+    </div>
 
-            p {
-                margin: 5px 0;
-                opacity: 0.9;
-            }
+    <button id="resetBtn" class="hidden">Crack Another Fate</button>
+</main>
 
-            #fortuneMessage {
-                min-height: 1.5em; /* Keeps layout stable when message appears */
-                color: #ffd700; /* Gold color for the fortune text */
-                font-weight: bold;
-            }
-
-            main {
-                flex-grow: 1;
-                position: relative;
-                width: 100%;
-                height: 100%;
-            }
-
-            spline-viewer {
-                width: 100%;
-                height: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Fortune Cookie</h1>
-            <p>Click the cookie to reveal your fortune!</p>
-            <p id="fortuneMessage" style="margin-top: 20px; font-size: 18px; font-style: italic;"></p>
-        </header>
-
-        <main>
-            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.79/build/spline-viewer.js"></script>
-            <spline-viewer url="https://prod.spline.design/Iy5nIXsqf2w5qRBx/scene.splinecode"></spline-viewer>
-        </main>
-    </body>
+<script src="../assets/js/script.js"></script>
+</body>
 </html>

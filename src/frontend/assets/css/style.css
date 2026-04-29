@@ -1,0 +1,159 @@
+/* TRADITIONAL CHINESE COLOR PALETTE */
+:root {
+    --bg-dark: #1A0000;         /* Deep Ink Black/Red */
+    --accent-red: #8B0000;       /* Rich Cinnabar Red (Luck) */
+    --imperial-gold: #D4AF37;    /* Rich Gold (Prosperity) */
+    --cookie-tan: #e1b16a;       /* Base baked color */
+    --cookie-baked: #c28e4e;     /* Deep baked shadow */
+    --paper-cream: #F9F7F2;      /* Traditional Rice Paper */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Serif SC', serif; /* clean body text */
+    /* RADIAL GRADIENT for depth: deep red center, black edges */
+    background: radial-gradient(circle, #3d0000 0%, var(--bg-dark) 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Subtle background overlay to add texture (like silk or paper) */
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwaDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=');
+    z-index: 1;
+    pointer-events: none;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Cinzel', serif; /* Traditional, decorative font for title */
+    margin: 0;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--imperial-gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+header p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 5;
+}
+
+/* THE UPGRADED CSS COOKIE (Looks 'baked') */
+#cookie-container {
+    position: relative;
+    width: 240px;
+    height: 180px;
+    cursor: pointer;
+}
+
+.cookie-half {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50% 50% 10% 50%; /* Classic folded shape */
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Satisfying crack animation */
+
+    /* GRADIENT for the baked effect: highlight top, shadow bottom */
+    background: linear-gradient(135deg, #f0ca96 0%, var(--cookie-tan) 40%, var(--cookie-baked) 100%);
+
+    /* SHADOWS for depth: inner and outer */
+    box-shadow:
+            inset 5px 5px 15px rgba(255,255,255,0.3), /* Highlight border */
+            inset -5px -5px 15px rgba(0,0,0,0.4),    /* baked inner shadow */
+            5px 15px 25px rgba(0,0,0,0.6);         /* ground shadow */
+}
+
+.right {
+    right: 0;
+    transform: scaleX(-1); /* Flips the shape and the gradient */
+}
+
+/* OPEN ANIMATION: Halves fly apart dramatically */
+#cookie.open .left { transform: translateX(-90px) rotate(-30deg); opacity: 0.8; }
+#cookie.open .right { transform: scaleX(-1) translateX(-90px) rotate(-30deg); opacity: 0.8; }
+
+/* UPGRADED FORTUNE PAPER (Feels traditional) */
+#paper {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 80%;
+    background: var(--paper-cream);
+    padding: 15px 20px;
+    box-sizing: border-box;
+    color: #222; /* High contrast black for text */
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+    opacity: 0;
+    transform: scale(0.2) translateY(50px) rotate(-10deg);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); /* Springs outward */
+    z-index: -1;
+
+    /* TRADITIONAL CHINESE TRIM: Red border left, Gold border right */
+    border-left: 5px solid var(--accent-red);
+    border-right: 5px solid var(--imperial-gold);
+    border-radius: 3px;
+}
+
+#paper.reveal {
+    opacity: 1;
+    transform: scale(1) translateY(-15px) rotate(0deg); /* Lands straight */
+    z-index: 5;
+}
+
+#fortuneMessage {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* UPGRADED RESET BUTTON */
+#resetBtn {
+    margin-top: 60px;
+    background: transparent;
+    border: 2px solid var(--imperial-gold);
+    color: var(--imperial-gold);
+    padding: 12px 30px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Cinzel', serif;
+    transition: 0.4s;
+}
+
+#resetBtn:hover {
+    background: var(--imperial-gold);
+    color: var(--bg-dark);
+}
+
+.hidden { display: none; }
